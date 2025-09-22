@@ -25,16 +25,16 @@ builder.Services.AddSingleton(sp =>
 builder.Services.AddSingleton<CosmosService>();
 
 // Register TemporalClient (synchronously)
-//builder.Services.AddSingleton(sp =>
-//    TemporalClient.ConnectAsync(new TemporalClientConnectOptions
-//    {
-//        TargetHost = "localhost:7233",
-//        Namespace = "default"
-//    }).GetAwaiter().GetResult()
-//);
+builder.Services.AddSingleton(sp =>
+    TemporalClient.ConnectAsync(new TemporalClientConnectOptions
+    {
+        TargetHost = "localhost:7233",
+        Namespace = "default"
+    }).GetAwaiter().GetResult()
+);
 
 //// Add worker hosted service
-//builder.Services.AddHostedService<TemporalWorkerHostedService>();
+builder.Services.AddHostedService<TemporalWorkerHostedService>();
 
 
 builder.Services.AddEndpointsApiExplorer();

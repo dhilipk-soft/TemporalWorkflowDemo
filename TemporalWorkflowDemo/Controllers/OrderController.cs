@@ -20,16 +20,16 @@ namespace TemporalWorkflowDemo.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateOrder([FromBody] OrderRequest orderRequest)
         {
-            //if (orderRequest.Quantity <= 0)
-            //{
-            //    return BadRequest("Quantity must be greater than 0");
-            //}
+            if (orderRequest.Quantity <= 0)
+            {
+                return BadRequest("Quantity must be greater than 0");
+            }
 
-            //var workflowId = Guid.NewGuid().ToString();
-            //await _client.StartWorkflowAsync<OrderWorkflow>(
-            //    wf => wf.RunAsync(orderRequest.ItemId, orderRequest.Quantity),
-            //    new WorkflowOptions(id: workflowId, taskQueue: "order-task-queue")
-            //);
+            var workflowId = Guid.NewGuid().ToString();
+            await _client.StartWorkflowAsync<OrderWorkflow>(
+                wf => wf.RunAsync(orderRequest.ItemId, orderRequest.Quantity),
+                new WorkflowOptions(id: workflowId, taskQueue: "order-task-queue")
+            );
 
             return Ok(new { WorkflowId = "sdfalkj" });
         }
