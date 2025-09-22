@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Azure.Cosmos;
 using Temporalio.Client;
 using TemporalWorkflowDemo.Workers;
 
@@ -11,17 +12,29 @@ var builder = WebApplication.CreateBuilder(args);
 // Add controllers and Swagger
 builder.Services.AddControllers();
 
-// Register TemporalClient (synchronously)
-builder.Services.AddSingleton(sp =>
-    TemporalClient.ConnectAsync(new TemporalClientConnectOptions
-    {
-        TargetHost = "localhost:7233",
-        Namespace = "default"
-    }).GetAwaiter().GetResult()
-);
+var cosmosConfig = builder.Configuration.GetSection("CosmosDb");
 
-// Add worker hosted service
-builder.Services.AddHostedService<TemporalWorkerHostedService>();
+// Register CosmosClient
+builder.Services.AddSingleton(sp =>
+{
+    return new CosmosClient(
+        cosmosConfig["AccountEndpoint"],
+        cosmosConfig["AccountKey"]);
+});
+
+builder.Services.AddSingleton<CosmosService>();
+
+// Register TemporalClient (synchronously)
+//builder.Services.AddSingleton(sp =>
+//    TemporalClient.ConnectAsync(new TemporalClientConnectOptions
+//    {
+//        TargetHost = "localhost:7233",
+//        Namespace = "default"
+//    }).GetAwaiter().GetResult()
+//);
+
+//// Add worker hosted service
+//builder.Services.AddHostedService<TemporalWorkerHostedService>();
 
 
 builder.Services.AddEndpointsApiExplorer();
