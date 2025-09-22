@@ -21,6 +21,23 @@ namespace TemporalWorkflowDemo.Controllers
             return Ok("Demo data inserted successfully.");
         }
 
+        [HttpPost("add")]
+        public async Task<IActionResult> AddWorkflow([FromBody] WorkflowItem item)
+        {
+            var created = await _cosmos.AddItemAsync(item);
+            return Ok(created);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetWorkflow(string id)
+        {
+            var item = await _cosmos.GetItemAsync(id);
+            if (item == null)
+                return NotFound();
+            return Ok(item);
+        }
+
+
     }
 
 }

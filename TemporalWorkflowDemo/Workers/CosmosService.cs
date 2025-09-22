@@ -21,16 +21,33 @@ public class CosmosService
         _container = client.GetContainer(databaseName, containerName);
     }
 
-    public async Task AddItemAsync<T>(T item, string partitionKey)
+    public async Task<WorkflowItem> AddItemAsync(WorkflowItem item)
     {
-        await _container.CreateItemAsync(item, new PartitionKey(partitionKey));
-    }
+        if (string.IsNullOrEmpty(item.id))
+            item.id = Guid.NewGuid().ToString();
 
-    public async Task<T> GetItemAsync<T>(string id, string partitionKey)
-    {
-        var response = await _container.ReadItemAsync<T>(id, new PartitionKey(partitionKey));
+        item.CreatedAt = DateTime.UtcNow;
+
+        var response = await _container.CreateItemAsync(item, new PartitionKey(item.id));
         return response.Resource;
     }
+
+    public async Task<WorkflowItem?> GetItemAsync(string id)
+    {
+        try
+        {
+            var response = await _container.ReadItemAsync<WorkflowItem>(
+                id,
+                new PartitionKey(id) // use value, not path
+            );
+            return response.Resource;
+        }
+        catch (CosmosException ex) when (ex.StatusCode == System.Net.HttpStatusCode.NotFound)
+        {
+            return null;
+        }
+    }
+
 
     public async Task SeedDemoDataAsync()
     {
