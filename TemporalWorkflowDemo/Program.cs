@@ -4,8 +4,13 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Azure.Cosmos;
 using Temporalio.Client;
 using TemporalWorkflowDemo.Workers;
+using TemporalWorkflow.Application.Services.Azure;
 
 var builder = WebApplication.CreateBuilder(args);
+
+
+builder.Services.Configure<AzureStorageSettings>(
+    builder.Configuration.GetSection("AzureStorage"));
 
 
 ///builder.WebHost.UseUrls("http://localhost:5005", "https://localhost:5006");

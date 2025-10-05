@@ -1,11 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.14.36511.14
+# Visual Studio Version 18
+VisualStudioVersion = 18.0.11018.127 d18.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemporalWorkflowDemo", "TemporalWorkflowDemo\TemporalWorkflowDemo.csproj", "{19B41F48-2D38-4D4A-82D0-61165667D7C2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemporalWorkflow.API", "TemporalWorkflowDemo\TemporalWorkflow.API.csproj", "{19B41F48-2D38-4D4A-82D0-61165667D7C2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication1", "WebApplication1\WebApplication1.csproj", "{09E1D636-4E6C-4DCB-89F0-C894BFB4890F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemporalWorkflow.Services", "TemporalWorkflow.Services\TemporalWorkflow.Services.csproj", "{8FDDAB61-67CC-47FB-9039-756D5A020069}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemporalWorkflow.Application", "TemporalWorkflow.Shared\TemporalWorkflow.Application.csproj", "{10B39B28-93A6-453E-8C07-380D58A08275}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemporalWorkflow.Module", "TemporalWorkflow.Module\TemporalWorkflow.Module.csproj", "{E8098E48-5FA4-4245-83C9-B2AB1A76B000}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemporalWorkflow.Infrastructure", "TemporalWorkflow.Infrastructure\TemporalWorkflow.Infrastructure.csproj", "{4D72A136-AF52-48D6-899A-520A5DD69A77}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +29,22 @@ Global
 		{09E1D636-4E6C-4DCB-89F0-C894BFB4890F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{09E1D636-4E6C-4DCB-89F0-C894BFB4890F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{09E1D636-4E6C-4DCB-89F0-C894BFB4890F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FDDAB61-67CC-47FB-9039-756D5A020069}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FDDAB61-67CC-47FB-9039-756D5A020069}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FDDAB61-67CC-47FB-9039-756D5A020069}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FDDAB61-67CC-47FB-9039-756D5A020069}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10B39B28-93A6-453E-8C07-380D58A08275}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10B39B28-93A6-453E-8C07-380D58A08275}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10B39B28-93A6-453E-8C07-380D58A08275}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10B39B28-93A6-453E-8C07-380D58A08275}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8098E48-5FA4-4245-83C9-B2AB1A76B000}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8098E48-5FA4-4245-83C9-B2AB1A76B000}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8098E48-5FA4-4245-83C9-B2AB1A76B000}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8098E48-5FA4-4245-83C9-B2AB1A76B000}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D72A136-AF52-48D6-899A-520A5DD69A77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D72A136-AF52-48D6-899A-520A5DD69A77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D72A136-AF52-48D6-899A-520A5DD69A77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D72A136-AF52-48D6-899A-520A5DD69A77}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
