@@ -1,36 +1,21 @@
 ﻿using Azure.Storage.Blobs;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TemporalWorkflow.Application.Interfaces;
+using TemporalWorkflow.Application.Services.Azure;
 
 namespace TemporalWorkflow.Services.Services
 {
     public class BlobContainerProvider: IBlobContainerProvider
     {
-        private readonly BlobServiceClient _blobServiceClient;
-        private readonly IConfiguration _config;
+        private readonly AzureStorageSettings _settings;
 
-        public BlobContainerProvider(BlobServiceClient serviceClient, IConfiguration config)
+        public BlobContainerProvider(AzureStorageSettings serviceClient)
         {
-            _blobServiceClient = serviceClient;
-            _config = config;
+            _settings = serviceClient;
         }
 
         public BlobContainerClient GetContainerClient(string key)
         {
-            string container = _config[$"AzureStorage:Container:{key}"];
-
-            if (string.IsNullOrEmpty(container))
-            {
-                throw new InvalidOperationException("Container mapping for '{key}' not found");
-            }
-
-            return _blobServiceClient.GetBlobContainerClient(container);
+            return new BlobContainerClient(_settings.ConnectionString, key);
         }
 
     }

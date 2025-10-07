@@ -8,7 +8,7 @@ namespace TemporalWorkflow.Application.Services.Azure
 {
     public class AzureStorageSettings
     {
-        public string ConnectionString { get; set; } = string.Empty;
-        public string ContainerName { get; set; } = string.Empty;
+        public required string ConnectionString { get; set; }
+        public required Dictionary<string, string> Containers { get; set; }
     }
 }

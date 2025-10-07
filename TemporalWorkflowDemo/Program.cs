@@ -1,16 +1,26 @@
+
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.Azure.Cosmos;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Azure.Cosmos;
 using Temporalio.Client;
-using TemporalWorkflowDemo.Workers;
+using TemporalWorkflow.API.Modules;
 using TemporalWorkflow.Application.Services.Azure;
+using TemporalWorkflowDemo.Workers;
 
 var builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services.Configure<AzureStorageSettings>(
     builder.Configuration.GetSection("AzureStorage"));
+
+builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
+builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
+{
+    containerBuilder.RegisterModule(new AzureStorageModule(builder.Configuration));
+});
 
 
 ///builder.WebHost.UseUrls("http://localhost:5005", "https://localhost:5006");
