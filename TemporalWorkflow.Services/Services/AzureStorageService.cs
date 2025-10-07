@@ -1,10 +1,5 @@
-﻿using Azure.Storage.Blobs;
+﻿
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TemporalWorkflow.Application.Interfaces;
 
 namespace TemporalWorkflow.Services.Services
@@ -16,7 +11,7 @@ namespace TemporalWorkflow.Services.Services
 
         public AzureStorageService(IBlobStorageRepository blobStorageRepository, ILogger<AzureStorageService> logger )
         {
-             _blobStorageRepository = blobStorageRepository;
+            _blobStorageRepository = blobStorageRepository;
             _logger = logger;
         }
         

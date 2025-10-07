@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="10.0.0" />
     <PackageReference Include="Azure.Data.Tables" Version="12.11.0" />
     <PackageReference Include="Azure.Storage.Files.Shares" Version="12.23.0" />
     <PackageReference Include="Azure.Storage.Queues" Version="12.23.0" />
@@ -25,7 +26,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\TemporalWorkflow.Infrastructure\TemporalWorkflow.Infrastructure.csproj" />
     <ProjectReference Include="..\TemporalWorkflow.Services\TemporalWorkflow.Services.csproj" />
+    <ProjectReference Include="..\TemporalWorkflow.Shared\TemporalWorkflow.Application.csproj" />
   </ItemGroup>
 
 </Project>
