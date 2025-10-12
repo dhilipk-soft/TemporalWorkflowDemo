@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemporalWorkflow.Applicatio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemporalWorkflow.Infrastructure", "TemporalWorkflow.Infrastructure\TemporalWorkflow.Infrastructure.csproj", "{4D72A136-AF52-48D6-899A-520A5DD69A77}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlobProcessingFunctionApp", "BlobProcessingFunctionApp\BlobProcessingFunctionApp.csproj", "{2829F17A-290C-123A-F463-A518D982F4B7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{4D72A136-AF52-48D6-899A-520A5DD69A77}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D72A136-AF52-48D6-899A-520A5DD69A77}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D72A136-AF52-48D6-899A-520A5DD69A77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2829F17A-290C-123A-F463-A518D982F4B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2829F17A-290C-123A-F463-A518D982F4B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2829F17A-290C-123A-F463-A518D982F4B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2829F17A-290C-123A-F463-A518D982F4B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

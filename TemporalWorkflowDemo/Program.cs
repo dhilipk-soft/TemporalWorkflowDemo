@@ -1,10 +1,7 @@
 
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.Azure.Cosmos;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using Temporalio.Client;
 using TemporalWorkflow.API.Modules;
 using TemporalWorkflow.Application.Services.Azure;
